@@ -1,0 +1,59 @@
+﻿@using BlazorAppExemploHerançaBCC.Model
+@page "/cadastroPessoaJuridica"
+@rendermode InteractiveServer
+
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            Cadastro de Pessoa Jurídica
+        </div>
+
+        <div class="card-body">
+            <EditForm Model="@pessoaJuridica">
+                <div>
+                    <label for="" class="form-label">Nome</label>
+                    <InputText id="txtNome" class="form-control" @bind-Value="pessoaJuridica.Nome" />
+                </div>
+                <div>
+                    <label for="" class="form-label">Endereço</label>
+                    <InputText id="txtEndereco" class="form-control" @bind-Value="pessoaJuridica.Endereco" />
+                </div>
+                <div>
+                    <label for="" class="form-label">Telefone</label>
+                    <InputText id="txtTelefone" class="form-control" @bind-Value="pessoaJuridica.Telefone" />
+                </div>
+                <div>
+                    <label for="" class="form-label">CNPJ</label>
+                    <InputText id="txtCNPJ" class="form-control" @bind-Value="pessoaJuridica.Cnpj" />
+                </div>
+                <div>
+                    <label for="" class="form-label">Inscrição Estadual</label>
+                    <InputText id="txtInscricaoEstadual" class="form-control" @bind-Value="pessoaJuridica.InscricaoEstadual" />
+                </div>
+                <div>
+                    <label for="" class="form-label">Inscrição Municipal</label>
+                    <InputText id="txtInscricaoMunicipal" class="form-control" @bind-Value="pessoaJuridica.InscricaoMunicipal" />
+                </div>
+
+            </EditForm>
+        </div>
+
+        <div class="card-footer">
+            <div>
+                <button class="btn btn_primary">Cadastrar</button>
+            </div>
+            <div>
+                <pre>@dadosImpressos</pre>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@code {
+    PessoaJuridica pessoaJuridica = new PessoaJuridica();
+    string dadosImpressos;
+    private void ImprimirJuridica(){
+        dadosImpressos = $"Nome: {pessoaJuridica.Nome}\r\n Endereço: {pessoaJuridica.Endereco}\r\n Telefone: {pessoaJuridica.Telefone}\r\n CNPJ: {pessoaJuridica.Cnpj}";
+    }
+}
